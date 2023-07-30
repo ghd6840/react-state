@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    function Btn({comment, fontSize}) {
+        return (
+            <button
+                style={{
+                    backgroundColor: "tomato",
+                    color: "white",
+                    padding: "10px 20px",
+                    border: 0,
+                    borderRadius:10,
+                    fontSize,
+                }}>
+                {comment}
+            </button>
+        );
+    }
+    Btn.propTypes = {
+        comment: PropTypes.string.isRequired,
+        fontSize: PropTypes.number,
+    };
+    function App() {
+      return (
+        <div>
+            <Btn comment="Save Changes" fontSize={18}/>
+            <Btn comment="Continue" fontSize={14}/>
+        </div>
+      );
+    };
+    
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+</script>
+</html>
